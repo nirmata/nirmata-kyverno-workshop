@@ -24,7 +24,7 @@ These demos are  organized into the following sections:
    - Implement container image verification using cosign
 
 4. **Resource Optimization**
-   - resource right sizing using Kyverno and Vertical Pod Autoscaler (VPA)
+   - Resource right sizing using Kyverno and Vertical Pod Autoscaler (VPA)
 
 ## Getting Started
 
