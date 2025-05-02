@@ -1,4 +1,4 @@
-# Kyverno demos 
+# Kyverno Demos 
 
 ## Prerequisites
 
