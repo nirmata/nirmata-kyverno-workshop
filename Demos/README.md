@@ -1,6 +1,4 @@
-# Kyverno Workshop 
-
-Welcome to the Kyverno Workshop! This hands-on workshop will guide you through various Kyverno policy implementations and best practices.
+# Kyverno demos 
 
 ## Prerequisites
 
@@ -8,10 +6,11 @@ Welcome to the Kyverno Workshop! This hands-on workshop will guide you through v
 - kubectl CLI tool
 - Kyverno installed on the cluster ([Installation Guide](https://kyverno.io/docs/installation/))
 - cosign (for image verification demo)
+- Chainsaw (for running E2E tests)
 
-## Workshop Structure
+## Demos Structure
 
-This workshop is organized into the following sections:
+These demos are  organized into the following sections:
 
 1. **Mutation Policies**
    - Learn how to modify Kubernetes resources on-the-fly
@@ -19,19 +18,13 @@ This workshop is organized into the following sections:
    - Add default resource limits
 
 2. **Generation Policies**
-   - Automatically create companion resources
    - Network policies generation
-   - ConfigMap/Secret generation
 
 3. **Image Verification**
    - Implement container image verification using cosign
-   - Enforce signed container images
-   - Verify image attestations
 
 4. **Resource Optimization**
-   - Set and enforce resource quotas
-   - Implement resource limits
-   - Best practices for resource management
+   - resource right sizing using Kyverno and Vertical Pod Autoscaler (VPA)
 
 ## Getting Started
 
