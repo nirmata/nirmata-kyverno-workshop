@@ -11,7 +11,7 @@ metadata:
       Define and use labels that identify semantic attributes of your application or Deployment.
       A common set of labels allows tools to work collaboratively, describing objects in a common manner that
       all tools can understand. The recommended labels describe applications in a way that can be
-      queried. This policy validates that the label `app.kubernetes.io/name` is specified with some value.
+      queried. This policy validates that a user-defined label is specified with some value.
 spec:
   validationFailureAction: Audit
   background: true
@@ -22,8 +22,8 @@ spec:
         kinds:
         - Pod
     validate:
-      message: "The label `app.kubernetes.io/name` is required."
+      message: "The label `<label-name>` is required."
       pattern:
         metadata:
           labels:
-            app.kubernetes.io/name: "?*"
+            <label-name>: "?*"

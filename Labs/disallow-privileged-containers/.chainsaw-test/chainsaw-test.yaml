@@ -1,0 +1,27 @@
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: disallow-privileged-containers-policy
+spec:
+  steps:
+  - name: test-disallow-privileged-containers
+    try:
+    - apply:
+        file: ../disallow-privileged-containers.yaml
+    - patch:
+        resource:
+          apiVersion: kyverno.io/v1
+          kind: ClusterPolicy
+          metadata:
+            name: disallow-privileged-containers
+          spec:
+            validationFailureAction: Audit
+    - assert:
+        file: policy-assert.yaml
+    - apply:
+        file: good-resource.yaml
+    - apply:
+        expect:
+        - check:
+            ($error != null): true
+        file: bad-resource.yaml
