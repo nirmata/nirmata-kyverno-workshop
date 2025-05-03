@@ -1,6 +1,6 @@
 # Image Verification Policy
 
-This repository contains a Kyverno policy that enforces image signature verification for container images. The policy ensures that only signed images can be deployed in the Kubernetes cluster.
+This folder contains a Kyverno policy that enforces image signature verification for container images. The policy ensures that only signed images can be deployed in the Kubernetes cluster.
 
 ## Policy Overview
 
@@ -58,7 +58,18 @@ Try running an unsigned image:
 ```bash
 kubectl run unsigned --image=index.docker.io/sagarkundral/nginx:unsigned-image
 ```
-This will be blocked by the policy.
+This will be blocked by the policy with below error
+
+```bash
+kubectl run unsigned --image=index.docker.io/sagarkundral/nginx:unsigned-image
+Error from server: admission webhook "mutate.kyverno.svc-fail" denied the request:
+
+resource Pod/default/unsigned was blocked due to the following policies
+
+check-image:
+  check-image: 'failed to verify image index.docker.io/sagarkundral/nginx:unsigned-image:
+    .attestors[0].entries[0].keys: no signatures found'
+```
 
 Try running a signed image:
 ```bash
