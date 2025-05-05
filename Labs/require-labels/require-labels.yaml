@@ -26,4 +26,4 @@ spec:
       pattern:
         metadata:
           labels:
-            <label-name>: "?*"
+            <label-name>: "<value>"

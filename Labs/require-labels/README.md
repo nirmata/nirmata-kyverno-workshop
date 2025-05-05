@@ -30,15 +30,28 @@ kubectl apply -f require-labels.yaml
 kubectl get cpol
 ```
 
-## Manual Test
+## Kyverno CLI Test
+Kyverno CLI test is a unit test that validates the policy and evaluates against a pre-defined k8s resource(s) before applying them to a live cluster.
+ * Step 1: Navigate to the `.kyverno-test` folder
+ * Step 2: Update the `resource.yaml` file with good-pod and bad-pod examples that pass and fail the policy criteria
+ * Step 3: Update the `kyverno-test.yaml` file to manually specify which resources fail the policy and which ones pass
+ * Step 4: Run the kyverno CLI test using the command:
+ ```bash
+ kyverno test .
+ ```
+
+## Chainsaw Test
+Chainsaw test is an E2E testing tool that's designed to simulate real-world scenarios within a live cluster or a simulated one like KinD. It allows to define sequences of actions (apply, update, delete etc.), and assert the resulting state of the cluster.
+ * Step 1: Navigate to the `.chainsaw-test` folder
+ * Step 2: Update the `good-resource.yaml` file with the resources that pass the policy criteria and `bad-resource.yaml` file with bad-pod examples that fail the policy criteria
+ * Step 3: Update the `policy-assert.yaml` file with the expected status of policy after applying
+ * Step 4: `chainsaw-test.yaml` file specifies which resources pass when applied and are expected to fail (good-resources and bad-resources)
+ * Step 5: Run the chainsaw test using the command:
+ ```bash
+ chainsaw test 
+ ```
 
 Remove the policies and test resources:
 ```bash
 kubectl delete -f .
 ```
-
-## Notes
-
-- For production use, consider using KMS or cloud provider key management services
-- Implement proper key rotation and management procedures
-- Consider using policy exceptions for development/testing environments 

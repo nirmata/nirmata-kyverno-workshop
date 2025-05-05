@@ -1,20 +1,19 @@
 apiVersion: chainsaw.kyverno.io/v1alpha1
 kind: Test
 metadata:
-  creationTimestamp: null
-  name: disallow-privileged-containers-policy
+  name: require-labels-policy
 spec:
   steps:
   - name: step-01 
     try:
     - apply:
-        file: ../disallow-privileged-containers.yaml
+        file: ../require-labels.yaml
     - patch:
         resource:
           apiVersion: kyverno.io/v1
           kind: ClusterPolicy
           metadata:
-            name: disallow-privileged-containers
+            name: require-labels
           spec:
             validationFailureAction: Audit
     - assert:
