@@ -61,6 +61,11 @@ kubectl apply -f config/vpa/install-vpa-recommender.yaml
 
 ### 5. Configure Kyverno RBAC
 
+To generate a VerticalPodAutoscale, Kyverno needs to be given additional permissions for VPA resources.
+
+Execute the following command to configure Kyverno permissions:
+
+
 ```bash
 # Apply RBAC configuration
 kubectl apply -f config/kyverno/rbac.yaml
