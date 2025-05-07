@@ -98,7 +98,7 @@ To generate a VerticalPodAutoscale, Kyverno needs to be given additional permiss
 Execute the following command to configure Kyverno permissions:
 
 ```sh
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/kyverno/rbac.yaml
+kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-workshop/main/Demos/04-resource-optimization/config/kyverno/rbac.yaml
 ```
 
 ## Install a Kyverno policies
@@ -106,8 +106,8 @@ kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimiz
 Install the policy to generate a VPA for deployments and statefulsets:
 
 ```sh
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/kyverno/policies/generate-vpa.yaml
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/kyverno/policies/check-resources.yaml
+kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-workshop/main/Demos/04-resource-optimization/config/kyverno/policies/generate-vpa.yaml
+kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-workshop/main/Demos/04-resource-optimization/config/kyverno/policies/check-resources.yaml
 ```
 
 ## Run a workload
@@ -115,7 +115,7 @@ kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimiz
 Install a workload:
 
 ```sh
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/workload/demo-kyverno-vpa.yaml
+kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-workshop/main/Demos/04-resource-optimization/config/workload/demo-kyverno-vpa.yaml
 ```
 
 The VPA will start providing recommendations after around 60s:
