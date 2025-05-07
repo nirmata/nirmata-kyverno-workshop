@@ -106,8 +106,13 @@ kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-works
 Install the policy to generate a VPA for deployments and statefulsets:
 
 ```sh
-kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-workshop/main/Demos/04-resource-optimization/config/kyverno/policies/generate-vpa.yaml
-kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-workshop/main/Demos/04-resource-optimization/config/kyverno/policies/check-resources.yaml
+# Using local files (recommended for development)
+kubectl apply -f ./config/kyverno/policies/generate-vpa.yaml
+kubectl apply -f ./config/kyverno/policies/check-resources.yaml
+
+# Using GitHub URLs (after repository is pushed to GitHub)
+# kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-workshop/main/Demos/04-resource-optimization/config/kyverno/policies/generate-vpa.yaml
+# kubectl apply -f https://raw.githubusercontent.com/nirmata/nirmata-kyverno-workshop/main/Demos/04-resource-optimization/config/kyverno/policies/check-resources.yaml
 ```
 
 ## Run a workload
