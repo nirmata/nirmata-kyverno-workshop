@@ -56,24 +56,24 @@ helm install kyverno kyverno/kyverno -n kyverno --create-namespace
 
 ```bash
 # Install VPA recommender
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/vpa/install-vpa-recommender.yaml
+kubectl apply -f config/vpa/install-vpa-recommender.yaml
 ```
 
 ### 5. Configure Kyverno RBAC
 
 ```bash
 # Apply RBAC configuration
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/kyverno/rbac.yaml
+kubectl apply -f config/kyverno/rbac.yaml
 ```
 
 ### 6. Install Kyverno Policies
 
 ```bash
 # Install VPA generation policy
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/kyverno/policies/generate-vpa.yaml
+kubectl apply -f config/kyverno/policies/generate-vpa.yaml
 
 # Install resource check policy
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/kyverno/policies/check-resources.yaml
+kubectl apply -f config/kyverno/policies/check-resources.yaml
 ```
 
 ## Demo Workload
@@ -81,7 +81,7 @@ kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimiz
 ### 1. Deploy Sample Workload
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/nirmata/demo-resource-optimizer/main/config/workload/demo-kyverno-vpa.yaml
+kubectl apply -f config/workload/demo-kyverno-vpa.yaml
 ```
 
 ### 2. Monitor VPA Recommendations
