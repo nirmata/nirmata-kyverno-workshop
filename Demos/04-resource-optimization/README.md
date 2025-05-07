@@ -40,25 +40,8 @@ kubectl patch deployment metrics-server -n kube-system \
 kubectl top nodes
 kubectl top pods -A
 ```
-### 3. Install Prometheus (optional)
 
-Prometheus is optional, but can help the VPA recommender with historical data for accuracy. 
-
-To install the Prometheus, execute:
-
-```sh
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-helm install prometheus prometheus-community/prometheus -n prometheus --create-namespace
-```
-
-NOTE: if you chose not to install Prometheus, remove or update the following lines in the VPA recommender installation:
-
-```yaml
-- --storage=prometheus
-- --prometheus-address=http://prometheus-server.default.svc.cluster.local:80
-```
-### 4. Install Kyverno
+### 3. Install Kyverno
 
 ```bash
 # Add Kyverno helm repo
@@ -69,21 +52,21 @@ helm repo update
 helm install kyverno kyverno/kyverno -n kyverno --create-namespace
 ```
 
-### 5. Install VPA Recommender
+### 4. Install VPA Recommender
 
 ```bash
 # Install VPA recommender
 kubectl apply -f config/vpa/install-vpa-recommender.yaml
 ```
 
-### 6. Configure Kyverno RBAC
+### 5. Configure Kyverno RBAC
 
 ```bash
 # Apply RBAC configuration
 kubectl apply -f config/kyverno/rbac.yaml
 ```
 
-### 7. Install Kyverno Policies
+### 6. Install Kyverno Policies
 
 ```bash
 # Install VPA generation policy
