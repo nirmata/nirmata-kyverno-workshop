@@ -1,6 +1,6 @@
 # Image Verification Policy
 
-This folder contains a Kyverno policy that enforces image signature verification for container images. The policy ensures that only signed images can be deployed in the Kubernetes cluster.
+The image verification policy enforces image signature verification for container images. The policy ensures that only signed images can be deployed in the Kubernetes cluster.
 
 ## Policy Overview
 
