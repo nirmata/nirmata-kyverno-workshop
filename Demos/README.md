@@ -5,7 +5,7 @@
 - Kubernetes cluster (v1.16 or higher)
 - kubectl CLI tool
 - Kyverno installed on the cluster ([Installation Guide](https://kyverno.io/docs/installation/))
-- cosign (for image verification demo)
+- Cosign (for image verification demo)
 - Chainsaw (for running E2E tests)
 
 ## Demos Structure
