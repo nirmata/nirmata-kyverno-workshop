@@ -51,7 +51,7 @@ spec:
           value: 0m # Set to >24h for production
       validate:
         foreach:
-          - list: vpa.status.recommendation.containerRecommendations
+          - list: vpa.status.recommendation.containerRecommendations[]
             context:
             - name: ctnr
               variable: &ctnrVariable
@@ -79,7 +79,7 @@ spec:
       preconditions: *pre
       validate:
         foreach:
-          - list: vpa.status.recommendation.containerRecommendations
+          - list: vpa.status.recommendation.containerRecommendations[]
             context: 
             - name: ctnr
               variable: *ctnrVariable
