@@ -29,11 +29,14 @@ spec:
             =(ephemeralContainers):
               - =(securityContext):
                   =(<setting>): <value>
+#                  =(privileged): "false"
             =(initContainers):
               - =(securityContext):
                   =(<setting>): <value>
+#                  =(privileged): "false"
             containers:
               - =(securityContext):
                   =(<setting>): <value>
+#                  =(privileged): "false"
 
 # Add the setting and value for the securityContext.privileged field
