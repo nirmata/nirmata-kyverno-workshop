@@ -64,6 +64,6 @@ This workshop is structured to guide you from the fundamentals of Kyverno to mor
    Explore Kyverno's powerful capabilities beyond basic validation.
 
    * **[Mutating Policy](https://github.com/nirmata/nirmata-kyverno-workshop/tree/main/Demos/01-mutation-policies):** Automatically modify resources, such as adding defaults or annotations.
-   * **Generating Policy:** Create new Kubernetes resources based on existing ones, automating tasks like creating ConfigMaps or Secrets.
-   * **Image Verification Policy:** Implement policies to ensure that only trusted container images are deployed in your cluster, enhancing security.
-   * **Resource Optimization:** Explore policies that can help optimize resource utilization.
+   * **[Generating Policy](https://github.com/nirmata/nirmata-kyverno-workshop/tree/main/Demos/02-generation-policies):** Create new Kubernetes resources based on existing ones, automating tasks like creating ConfigMaps or Secrets.
+   * **[Image Verification Policy](https://github.com/nirmata/nirmata-kyverno-workshop/tree/main/Demos/03-image-verification):** Implement policies to ensure that only trusted container images are deployed in your cluster, enhancing security.
+   * **[Resource Optimization](https://github.com/nirmata/nirmata-kyverno-workshop/tree/main/Demos/04-resource-optimization):** Explore policies that can help optimize resource utilization.
