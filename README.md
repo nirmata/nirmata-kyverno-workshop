@@ -56,8 +56,8 @@ This workshop is structured to guide you from the fundamentals of Kyverno to mor
 
    We'll focus on writing, deploying, and testing validation policies to enforce constraints on Kubernetes resources.
 
-   * **[Require Labels](https://github.com/nirmata/nirmata-kyverno-workshop/tree/main/Labs/require-labels):** Ensure that specific labels are applied to resources for organizational and management purposes.
-   * **[Pod Security Standards](https://github.com/nirmata/nirmata-kyverno-workshop/tree/main/Labs/disallow-privileged-containers):** Implement policies to enforce security best practices for Pods.
+   * **Governance:**[Require Labels](https://github.com/nirmata/nirmata-kyverno-workshop/tree/main/Labs/require-labels) - Ensure that specific labels are applied to resources for organizational and management purposes.
+   * **Pod Security**[Disallow Privileged Containers](https://github.com/nirmata/nirmata-kyverno-workshop/tree/main/Labs/disallow-privileged-containers) - Implement policies to enforce security best practices for Pods.
 
 **3. Advanced Kyverno Policy Use Cases**
 
