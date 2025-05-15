@@ -23,7 +23,6 @@ spec:
           - Pod
           - Service
           - ConfigMap
-          - Secret
     mutate:
       patchStrategicMerge:
         metadata:
