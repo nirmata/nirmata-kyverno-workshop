@@ -15,7 +15,7 @@ spec:
           metadata:
             name: disallow-privileged-containers
           spec:
-            validationFailureAction: Audit
+            validationFailureAction: Enforce
     - assert:
         file: policy-assert.yaml
   - name: step-02

@@ -3,8 +3,56 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: badpod
+  name: badpod01
 spec:
+  containers:
+  - name: container01
+    image: dummyimagename
+    securityContext:
+      privileged: true
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod02
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: dummyimagename
+    securityContext:
+      privileged: true
+  containers:
+  - name: container01
+    image: dummyimagename
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod03
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: dummyimagename
+  - name: initcontainer02
+    image: dummyimagename
+    securityContext:
+      privileged: true
+  containers:
+  - name: container01
+    image: dummyimagename
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod04
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: dummyimagename
+  - name: initcontainer02
+    image: dummyimagename
+    securityContext:
+      privileged: true
   containers:
   - name: container01
     image: dummyimagename
@@ -15,17 +63,63 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: goodpod
+  name: goodpod01
 spec:
   containers:
   - name: container01
     image: dummyimagename
 ---
-###### Deployments - Bad
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goodpod02
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: dummyimagename
+  - name: initcontainer02
+    image: dummyimagename
+    securityContext:
+      privileged: false
+  containers:
+  - name: container01
+    image: dummyimagename
+    securityContext:
+      privileged: false
+---
+###### Deployment - Bad
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: baddeployment
+  name: baddeployment01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      initContainers:
+      - name: initcontainer01
+        image: dummyimagename
+      - name: initcontainer02
+        image: dummyimagename
+        securityContext:
+          privileged: true
+      containers:
+      - name: container01
+        image: dummyimagename
+        securityContext:
+          privileged: true
+---
+###### Deployment - Good
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gooddeployment01
 spec:
   replicas: 1
   selector:
@@ -40,32 +134,13 @@ spec:
       - name: container01
         image: dummyimagename
         securityContext:
-          privileged: true
+          privileged: false
 ---
-###### Deployments - Good
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: gooddeployment
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: app
-  template:
-    metadata:
-      labels:
-        app: app
-    spec:
-      containers:
-      - name: container01
-        image: dummyimagename
----
-###### CronJobs - Bad
+###### CronJob - Bad
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: badcronjob
+  name: badcronjob01
 spec:
   schedule: "*/1 * * * *"
   jobTemplate:
@@ -79,11 +154,11 @@ spec:
             securityContext:
               privileged: true
 ---
-###### CronJobs - Good
+###### CronJob - Good
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: goodcronjob
+  name: goodcronjob01
 spec:
   schedule: "*/1 * * * *"
   jobTemplate:

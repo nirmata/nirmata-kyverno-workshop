@@ -7,36 +7,42 @@ results:
 ###### Pods - Bad
   - policy: disallow-privileged-containers
     rule: privileged-containers
-    resource: badpod
+    resources: 
+    - badpod01
+    - badpod02
+    - badpod03
+    - badpod04
     kind: Pod
     result: fail
 ###### Pods - Good
   - policy: disallow-privileged-containers
     rule: privileged-containers
-    resource: goodpod
+    resources: 
+    - goodpod01
+    - goodpod02
     kind: Pod
     result: pass
 ###### Deployments - Bad
   - policy: disallow-privileged-containers
     rule: privileged-containers
-    resource: baddeployment
+    resource: baddeployment01
     kind: Deployment
     result: fail
 ###### Deployments - Good
   - policy: disallow-privileged-containers
     rule: privileged-containers
-    resource: gooddeployment
+    resource: gooddeployment01
     kind: Deployment
     result: pass
-###### CronJobs - Bad
+###### Cronjob - Bad
   - policy: disallow-privileged-containers
     rule: privileged-containers
-    resource: badcronjob
+    resource: badcronjob01
     kind: CronJob
     result: fail
-###### CronJobs - Good
+###### Cronjob - Good
   - policy: disallow-privileged-containers
     rule: privileged-containers
-    resource: goodcronjob
+    resource: goodcronjob01
     kind: CronJob
     result: pass

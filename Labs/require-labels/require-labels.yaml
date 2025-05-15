@@ -26,5 +26,5 @@ spec:
       pattern:
         metadata:
           labels:
-            <label-name>: "<value>"   # Add the label to be validated and the expected value
-#            app.kubernetes.io/name: "?*"
+#            <label-name>: "<value>"   # Add the label to be validated and the expected value
+            app.kubernetes.io/name: "?*"
