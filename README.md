@@ -1,23 +1,47 @@
 # PaC-workshop with Kyverno
 
 ## Pre-Requisites
-To get the most out of this workshop, you'll need access to a Kubernetes cluster.  You can use a local single-node cluster environment such as:
+To get the most out of this workshop, you'll need the following:
 
-* **kind:** [https://kind.sigs.k8s.io/docs/user/quick-start/](https://kind.sigs.k8s.io/docs/user/quick-start/)
-* **minikube:** [https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/)
-* **k3d:** [https://k3d.io/v5.4.6/usage/](https://k3d.io/v5.4.6/usage/)
+* **kubectl** [Install kubectl](https://kubernetes.io/docs/tasks/tools/)
+* Access to a Kubernetes cluster.  You can use a local single-node cluster environment such as:
+   * **kind:** [Installation Guide](https://kind.sigs.k8s.io/docs/user/quick-start/)
+   * **minikube:** [Installation Guide/](https://minikube.sigs.k8s.io/docs/start/)
+   * **k3d:** [Installation Guide](https://k3d.io/v5.4.6/usage/)
+* Docker Desktop [Installation Guide](https://docs.docker.com/desktop/)
+* **helm:** To install Kyverno OSS [Install helm](https://helm.sh/docs/intro/install/)
+* An IDE/ vim to customize the policies
 
 ## Kyverno Documentation & Resources
 
 * **Kyverno Official Documentation:** [https://kyverno.io/docs/](https://kyverno.io/docs/) -  The official source for all things Kyverno.
 * **Kyverno Policy Library:**
-    * **Kyverno website:** [https://kyverno.io/policies/](https://kyverno.io/policies/) -  A collection of ready-to-use Kyverno policies.
-    * **Github repo:** [https://github.com/kyverno/policies/](https://github.com/kyverno/policies/) - The source code for the policy library, allowing you to contribute or policies.
+   * **Kyverno website:** [https://kyverno.io/policies/](https://kyverno.io/policies/) -  A collection of ready-to-use Kyverno policies.
+   * **Github repo:** [https://github.com/kyverno/policies/](https://github.com/kyverno/policies/) - The source code for the policy library, allowing you to contribute or policies.
 
 ## Tools for Testing
 
-* **Kyverno CLI:** [https://kyverno.io/docs/kyverno-cli/install/](https://kyverno.io/docs/kyverno-cli/install/) - A tool for performing unit tests on Kyverno policies.
-* **Install Chainsaw:** [ihttps://kyverno.github.io/chainsaw/latest/quick-start/install/](https://kyverno.github.io/chainsaw/latest/quick-start/install/) - A framework for E2E testing of policies.
+* **Kyverno CLI:** [Guide](https://kyverno.io/docs/kyverno-cli/) - A tool for performing unit tests on Kyverno policies.
+* **Chainsaw:** [Guide](https://kyverno.github.io/chainsaw/0.2.3/quick-start/) - A framework for E2E testing of policies.
+
+## Setting up the Workshop Environment
+
+* **Installing Kyverno OSS**
+   * **Step 1:** Add the Kyverno helm chart to the list
+   ```
+   helm repo add kyverno https://kyverno.github.io/kyverno && helm repo update
+   ```
+   * **Step 2:** Get the Kyverno OSS chart list
+   ```
+   helm search repo kyverno -l
+   ```
+   * **Step 3:** Install Kyverno OSS
+   ```
+   helm install kyverno --namespace kyverno --create-namespace kyverno/kyverno
+   ```
+      * Installs the latest Kyverno OSS version
+   * **Step 4:** [Install Kyverno CLI](https://kyverno.io/docs/kyverno-cli/install/)
+   * **Step 5:** [Install Chainsaw](https://kyverno.github.io/chainsaw/latest/quick-start/install/)
 
 ## Workshop Agenda
 
