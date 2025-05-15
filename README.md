@@ -35,13 +35,12 @@ To get the most out of this workshop, you'll need the following:
    ```
    helm search repo kyverno -l
    ```
-   * **Step 3:** Install Kyverno OSS
+   * **Step 3:** Install Kyverno OSS (Installs the latest Kyverno OSS)
    ```
    helm install kyverno --namespace kyverno --create-namespace kyverno/kyverno
    ```
-      * Installs the latest Kyverno OSS version
-   * **Step 4:** [Install Kyverno CLI](https://kyverno.io/docs/kyverno-cli/install/)
-   * **Step 5:** [Install Chainsaw](https://kyverno.github.io/chainsaw/latest/quick-start/install/)
+* **Install Kyverno CLI:** [Install Guide](https://kyverno.io/docs/kyverno-cli/install/)
+* **Install Chainsaw** [Install Guide](https://kyverno.github.io/chainsaw/latest/quick-start/install/)
 
 ## Workshop Agenda
 
