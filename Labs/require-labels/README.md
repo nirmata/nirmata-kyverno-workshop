@@ -37,7 +37,7 @@ kubectl get cpol
    ```
    kubectl apply -f .kyverno-test/resource.yaml
    ```
-3. As the policy is deployed in `Audit` mode, the resoueces are allowed to be deployed while logging the violations. Check the policy violations using the command
+3. As the policy is deployed in `Audit` mode, the resources are allowed to be deployed while logging the violations. Check the policy violations using the command
    ```
    kubectl get polr
    ```
@@ -46,7 +46,7 @@ kubectl get cpol
 4. Clean up the created resources and policies using the following commands
    ```
    kubectl delete cpol require-labels
-   kubectl delete -f .kyverno-test/resouece.yaml
+   kubectl delete -f .kyverno-test/resource.yaml
    ```
 
 ## Kyverno CLI Test
