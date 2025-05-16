@@ -24,6 +24,25 @@ kubectl apply -f disallow-privileged-containers.yaml
 kubectl get cpol
 ```
 
+## Testing the Policy Manually
+
+1. There's a resource file in `.kyverno-test` folder which can be used to test the deployed policy.
+2. From the `disallow-privileged-containers` folder, apply the `resource.yaml` file using the command
+   ```
+   kubectl apply -f .kyverno-test/resource.yaml
+   ```
+3. As the policy is deployed in `Audit` mode, the resources are allowed to be deployed while logging the violations. Check the policy violations using the command
+   ```
+   kubectl get polr
+   ```
+   Note: The policy reports are tagged to the namespace, so any resources that are deployed in non-default namespaces should be verified using the `-n <namespace>` suffix to the above command.
+
+4. Clean up the created resources and policies using the following commands
+   ```
+   kubectl delete cpol disallow-privileged-containers
+   kubectl delete -f .kyverno-test/resource.yaml
+   ```
+
 ## Kyverno CLI Test
 Kyverno CLI test is a unit test that validates the policy and evaluates against a pre-defined k8s resource(s) before applying them to a live cluster.
  * Step 1: Navigate to the `.kyverno-test` folder
